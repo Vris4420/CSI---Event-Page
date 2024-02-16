@@ -1,0 +1,34 @@
+<% layout("/layouts/boilerplate.ejs"); %>
+<body>
+    <div class="row mt-3">
+        <div class="col-8 offset-3">
+            
+            <h3>Current insight details</h3>
+        </div>
+        
+            <div class="card col-6 offset-3 show-card">
+
+                <img src="<%=currins.image%>" class="card-img-top show-img" alt="image" style="height: 20rem;">
+                <div class="card-body">
+                  <p class="card-text">
+                    <h3><%= currins.title %></h3> 
+                    <br>
+                    <b>Short Description: </b><%= currins.shortdescrip%>
+                    <br>
+                    <b>Main Description: </b><%= currins.description %>
+                    <br>
+                    <b>Posted on: </b><%= currins.date %>
+                  </p>
+                </div>
+            </div>
+
+            <div class="btns">
+                <a href="/home/<%=currins._id%>/edit" class="btn btn-dark col-1 offset-3">Edit</a>
+                <br>
+                <form method="POST" action="/home/<%=currins._id%>?_method=DELETE">
+                    <button class="btn btn-danger offset-5">DELETE</button>
+                </form>
+
+            </div>
+    </div>
+</body>

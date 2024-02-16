@@ -1,0 +1,40 @@
+<% layout("/layouts/boilerplate")%>
+<body>
+    <div class="row">
+        <div class="col-8 offset-2 mt-2">
+
+            <h3>Create a new post</h3>
+            <form method="POST" action="/home" novalidate class="needs-validation">
+                
+                <div>
+                    <label for="title" class="form-label">Tilte</label>
+                    <input name="currins[title]" placeholder="Enter Title" type="text" class="form-control" required>
+                    <div class="valid-feedback">Title looks good!</div>
+                    <br>
+                </div>
+                <div>
+                    <label for="shortdescrip" class="form-label">Short Description</label>
+                    <textarea name="currins[shortdescrip]" class="form-control" required></textarea>
+                    <br>
+                </div>
+                <div>
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="currins[description]" class="form-control"></textarea>
+                    <br>
+                </div>
+                <div>
+                    <label for="image" class="form-label">Image Link</label>
+                    <input name="currins[image]" placeholder="Enter Link" type="text" class="form-control">
+                    <br>
+                </div>
+                <div>
+                    <label for="date" class="form-label">Posted on</label>
+                    <input name="currins[date]" type="date" placeholder="Enter Title" class="form-control" required>
+                    <div class="valid-feedback">Looks good!</div>
+                    <br>
+                </div>
+                <button class="btn btn-dark">ADD</button>
+            </form>
+        </div>
+    </div>
+</body>

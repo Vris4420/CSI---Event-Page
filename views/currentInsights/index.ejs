@@ -1,0 +1,29 @@
+<% layout("/layouts/boilerplate.ejs"); %>
+<body>
+    <br><br>
+    <h3>Current Insights Dashboard</h3>
+    <br><br>
+
+    <!-- card -->
+    <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-1">
+        <% for(let currins of currList){ %>
+            <a href="/home/<%=currins._id%>" class="currLink">
+                <div class="card col">
+                    <img src="<%=currins.image%>" class="card-img-top" alt="image" style="height: 20rem;"></style>
+                    <div class="card-img-overlay"></div>
+                    <div class="card-body">
+                    <p class="card-text">
+                        <h3><%=currins.title%></h3>
+                        <br>
+                        <p><%= currins.shortdescrip%></p>
+                    </p>
+                    </div>
+                </div>
+
+            </a>
+        <% } %>
+    </div>
+
+    
+</body>
+

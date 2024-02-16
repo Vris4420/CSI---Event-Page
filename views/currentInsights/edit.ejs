@@ -1,0 +1,38 @@
+<% layout("/layouts/boilerplate.ejs"); %>
+<body>
+    <div class="row">
+        <div class="col-8 offset-2 mt-2">
+            <h3>Edit your post</h3>
+            <form method="POST" action="/home/<%=currins._id%>?_method=PUT" novalidate class="needs-validation">
+                <div>
+                    <label for="title" class="form-label">Tilte</label>
+                    <input name="currins[title]" value="<%=currins.title%>" type="text" class="form-control" required>
+                    <div class="valid-feedback">Title looks good!</div>
+                    <br>
+                </div>
+                <div>
+                    <label for="shortdescrip" class="form-label">Short Description</label>
+                    <textarea name="currins[shortdescrip]" class="form-control" required><%=currins.shortdescrip%></textarea>
+                    <br>
+                </div>
+                <div>
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="currins[description]" class="form-control"><%=currins.description%></textarea>
+                    <br>
+                </div>
+                <div>
+                    <label for="image" class="form-label">Image Link</label>
+                    <input name="currins[image]" value="<%=currins.image%>" type="text" class="form-control">
+                    <br>
+                </div>
+                <div>
+                    <label for="date" class="form-label">Edited on</label>
+                    <input name="currins[date]" type="date" value="<%=currins.date%>"class="form-control" required>
+                    <div class="valid-feedback">Looks good!</div>
+                    <br>
+                </div>
+                <button class="btn btn-dark">EDIT</button>
+            </form>
+        </div>
+    </div>
+</body>
