@@ -25,9 +25,9 @@ app.engine('ejs',ejsMate); //for ejsMate
 app.use(express.static(path.join(__dirname,"/public"))) // forn static files
 
 
-app.get("/", (req,res) => {
-    res.send("root")
-})
+// app.get("/", (req,res) => {
+//     res.send("root")
+// })
 
 app.get(("/home"), async (req,res) => {
    const currList = await Form.find({});
