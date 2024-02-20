@@ -72,8 +72,9 @@ app.delete("/home/:id", async(req,res) => {
     res.redirect("/home")
 })
 
-app.get("/", (req,res) => {
-    res.send("root")
+app.get("/", async(req,res) => {
+    const currList = await Form.find({})
+    res.render("currentInsights/index.ejs", {currList})
 })
 
 app.listen(3000, ()=> {
