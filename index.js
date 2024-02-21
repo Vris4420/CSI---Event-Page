@@ -7,6 +7,7 @@ const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 require("dotenv").config();
+const URL = process.env.URL;
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
@@ -16,8 +17,11 @@ main().then(() => {
 }).catch((err) => {
     console.log(err)
 })
+// async function main() {
+//     await mongoose.connect('mongodb+srv://EventPage:yapVDhPabbMLnzdY@cluster0.asmxswk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+// }
 async function main() {
-    await mongoose.connect('mongodb+srv://EventPage:yapVDhPabbMLnzdY@cluster0.asmxswk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+    await mongoose.connect(URL);
 }
 
 app.set("view engine","ejs");
