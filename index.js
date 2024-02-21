@@ -1,11 +1,14 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const MongoUrl = "mongodb://127.0.0.1:27017/currins";
+//const MongoUrl = "mongodb://127.0.0.1:27017/currins";
 const Form = require("./models/form.js");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
+require("dotenv").config();
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
 
 //Mongoose
 main().then(() => {
@@ -14,7 +17,7 @@ main().then(() => {
     console.log(err)
 })
 async function main() {
-    await mongoose.connect(MongoUrl)
+    await mongoose.connect('mongodb+srv://EventPage:yapVDhPabbMLnzdY@cluster0.asmxswk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 }
 
 app.set("view engine","ejs");
@@ -25,6 +28,17 @@ app.engine('ejs',ejsMate); //for ejsMate
 app.use(express.static(path.join(__dirname,"/public"))) // forn static files
 
 
+//mongo session
+const store = MongoStore.create({
+    mongoUrl :'mongodb+srv://EventPage:yapVDhPabbMLnzdY@cluster0.asmxswk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
+    crypto: {
+        secret:"secret0021",
+    },
+    touchAfter: 24*3600,
+})
+store.on("error",()=> {
+    console.log("Error in mongo store", err)
+})
 
 
 app.get(("/home"), async (req,res) => {
